@@ -11,8 +11,8 @@ public class CameraController : MonoBehaviour  {
   
     void LateUpdate() {
       //Find both players through Networkmanager
-        player1 = NetworkManager.Singleton.
-        player2 = NetworkManager.Singleton.
+        player1 = NetworkManager.Singleton.ConnectedClients[0];
+        player2 = NetworkManager.Singleton.ConnectedClients[1]:
 
       //Align with center of players
         Vector3 centerPos = new Vector3(player1.x - player2.x, player1.y - player2.y, 0;
