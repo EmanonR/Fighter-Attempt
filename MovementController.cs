@@ -42,12 +42,14 @@ public class MovementController : NetworkBehaviour
 
     void Start()
     {
+      if (!isOnwer) return;
         rb = GetComponent<Rigidbody>();
         cam = camera.Main;
     }
 
     void Update()
     {
+      if (!isOnwer) return;
 
         switch (StateMachine) {
             case StateMachine.standing:
@@ -75,7 +77,9 @@ public class MovementController : NetworkBehaviour
     }
 
     private void FixedUpdate()
-    {
+    {      
+      if (!isOnwer) return;
+
         if (movementDir.x != 0) HandleMovement();
     }
 
