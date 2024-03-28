@@ -5,18 +5,18 @@ using Unity.Netcode;
 
 public class CameraController : MonoBehaviour  {
 
-  Transform player1;
-  Transform player2;
+  [HideInInspector] public Transform player1;
+  [HideInInspector] public Transform player2;
   [Serializefield] private float zoomMod = 0.1f;
   
     void LateUpdate() {
       //Find both players through Networkmanager
         player1 = NetworkManager.Singleton.ConnectedClients[0];
-        player2 = NetworkManager.Singleton.ConnectedClients[1]:
+        player2 = NetworkManager.Singleton.ConnectedClients[1];
 
       //Align with center of players
         Vector3 centerPos = new Vector3(player1.x - player2.x, player1.y - player2.y, 0;
-        transform.position = centerPos:
+        transform.position = centerPos;
         
       //Zoom out so both are visible
         float zoomAmount = Vector3.Distance(player1.position, player2.position) * zoomMod;
